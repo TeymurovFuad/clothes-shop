@@ -1,0 +1,16 @@
+body {
+  padding: 20px 50px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+
+  &:hover {
+    color: rgb(126, 123, 123);
+
+    & .option {
+      border: 1px solid red;
+    }
+  }
+}

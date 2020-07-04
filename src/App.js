@@ -1,18 +1,23 @@
 import React from "react";
-import "./App.css";
 import HomePage from "./page/home/homepage.component";
-import { Switch, Route, Link } from "react-router-dom";
 import ShopPage from "./page/shop/shop.component";
+import RegisterLogin from "./page/register-login/register-login.component";
+import Header from "./components/header/header.component";
+import { Switch, Route, Link } from "react-router-dom";
+import "../src/styles/css/App.css";
+import "../src/styles/css/header.styles.css";
 
-const HatsPage = (props) => {
-  console.log(props);
-  return (
-    <div>
-      <Link to="/">Topic List</Link>
-      <h1>#1 Hats Page</h1>
-    </div>
-  );
-};
+// const HatsPage = (props) => {
+//   console.log("<HatsPage>");
+//   console.log(props);
+//   console.log("</HatsPage>");
+//   return (
+//     <div>
+//       <Link to="/">Topic List</Link>
+//       <h1>#1 Hats Page</h1>
+//     </div>
+//   );
+// };
 
 // const TopicList = (props) => {
 //   console.log(props);
@@ -47,11 +52,13 @@ function App() {
     <div>
       {/* <HomePage /> */}
       {/* https://www.udemy.com/course/complete-react-developer-zero-to-mastery/learn/lecture/14974354#overview */}
+      <Header />
       <Switch>
         {/* <Route path="/topicList" component={TopicList} /> */}
         {/* <Route path="/topicList/:ID" component={TopicDetails} /> */}
         <Route exact path="/" component={HomePage} />
         <Route exact path="/shop" component={ShopPage} />
+        <Route exact path="/register" component={RegisterLogin} />
         {/* <Route exact path="/shop/hats" component={HatsPage} /> */}
       </Switch>
     </div>
