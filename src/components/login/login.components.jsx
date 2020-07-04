@@ -1,4 +1,5 @@
 import React from "react";
+import FormInput from "../form-input/form-input.component";
 import "../../styles/css/login.styles.css";
 
 console.log("Login");
@@ -19,11 +20,10 @@ class Login extends React.Component {
   };
 
   handelChange = (event) => {
-    console.log({ event });
-    console.log(event.target.email);
     const { value, name } = event.target;
 
     this.setState({ [name]: value });
+    console.log(this.state.any);
   };
 
   render() {
@@ -34,26 +34,27 @@ class Login extends React.Component {
 
         {/* Login form */}
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor="loginMail">Email </label>
-          <input
+          {/* <label htmlFor="loginMail">Email </label> */}
+          <FormInput
+            label="Email"
             name="email"
             id="loginMail"
             type="email"
-            placeholder="example@sample.com"
+            // placeholder="example@sample.com"
             value={this.state.email}
             required
-            onChange={this.handelChange}
+            handelChange={this.handelChange}
           />
-          <br />
-          <label htmlFor="loginpassword">Password </label>
-          <input
+          {/* <label htmlFor="loginpassword">Password </label> */}
+          <FormInput
+            label="Password"
             name="password"
-            id="loginpassword"
+            // id="loginpassword"
             type="password"
-            placeholder="5Fdg5v4sd6!"
+            // placeholder="************"
             value={this.state.password}
             required
-            onChange={this.handelChange}
+            handelChange={this.handelChange}
           />
           <br />
           <input type="submit" value="Confirm" />
