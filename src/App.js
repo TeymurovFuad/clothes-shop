@@ -42,6 +42,7 @@ const HatsPage = (props) => {
 // };
 
 function App() {
+  console.log("app");
   return (
     <div>
       {/* <HomePage /> */}
