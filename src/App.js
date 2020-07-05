@@ -6,6 +6,8 @@ import Header from "./components/header/header.component";
 import { Switch, Route, Link } from "react-router-dom";
 import "../src/styles/css/App.css";
 import "../src/styles/css/header.styles.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { auth } from "./firebase/firebase.utils";
 
 // const HatsPage = (props) => {
 //   console.log("<HatsPage>");
@@ -46,23 +48,45 @@ import "../src/styles/css/header.styles.css";
 //   );
 // };
 
-function App() {
-  console.log("app");
-  return (
-    <div>
-      {/* <HomePage /> */}
-      {/* https://www.udemy.com/course/complete-react-developer-zero-to-mastery/learn/lecture/14974354#overview */}
-      <Header />
-      <Switch>
-        {/* <Route path="/topicList" component={TopicList} /> */}
-        {/* <Route path="/topicList/:ID" component={TopicDetails} /> */}
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/shop" component={ShopPage} />
-        <Route exact path="/register" component={RegisterLogin} />
-        {/* <Route exact path="/shop/hats" component={HatsPage} /> */}
-      </Switch>
-    </div>
-  );
+class App extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      cusrrentUser: null,
+    };
+  }
+
+  unsubscribeFromAuth = null;
+
+  componentDidMount() {
+    auth.onAuthStateChanged((user) => {
+      this.setState({ cusrrentUser: user });
+      console.log(user);
+    });
+  }
+
+  componentWillUnmount() {
+    this.unsubscribeFromAuth();
+  }
+
+  render() {
+    return (
+      <div>
+        {/* <HomePage /> */}
+        {/* https://www.udemy.com/course/complete-react-developer-zero-to-mastery/learn/lecture/14974354#overview */}
+        <Header currentUser={this.state.user} />
+        <Switch>
+          {/* <Route path="/topicList" component={TopicList} /> */}
+          {/* <Route path="/topicList/:ID" component={TopicDetails} /> */}
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/shop" component={ShopPage} />
+          <Route exact path="/register" component={RegisterLogin} />
+          {/* <Route exact path="/shop/hats" component={HatsPage} /> */}
+        </Switch>
+      </div>
+    );
+  }
 }
 
 export default App;
