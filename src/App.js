@@ -3,11 +3,11 @@ import HomePage from "./page/home/homepage.component";
 import ShopPage from "./page/shop/shop.component";
 import RegisterLogin from "./page/register-login/register-login.component";
 import Header from "./components/header/header.component";
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route /*, Link*/ } from "react-router-dom";
 import "../src/styles/css/App.css";
 import "../src/styles/css/header.styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { auth } from "./firebase/firebase.utils";
+import { auth, createUSerProfileDcument } from "./firebase/firebase.utils";
 
 // const HatsPage = (props) => {
 //   console.log("<HatsPage>");
@@ -53,16 +53,29 @@ class App extends React.Component {
     super();
 
     this.state = {
-      cusrrentUser: null,
+      currentUser: null,
     };
   }
 
   unsubscribeFromAuth = null;
 
   componentDidMount() {
-    auth.onAuthStateChanged((user) => {
-      this.setState({ cusrrentUser: user });
-      console.log(user);
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
+      if (userAuth) {
+        const userRef = await createUSerProfileDcument(userAuth);
+
+        userRef.onSnapShot((snapShot) => {
+          this.setState({
+            currentUser: {
+              id: snapShot.id,
+              ...snapShot.data(),
+            },
+          });
+        });
+        console.log("state", this.state);
+        console.console.log(Error());
+      }
+      this.setState({ currentUser: userAuth });
     });
   }
 
