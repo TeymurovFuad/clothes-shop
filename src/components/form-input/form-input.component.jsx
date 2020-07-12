@@ -3,7 +3,12 @@ import "../../styles/css/form-input.styles.css";
 
 const FormInput = ({ handelChange, label, ...otherProps }) => (
   <div className="group">
-    <input className="form-input" onChange={handelChange} {...otherProps} />
+    <input
+      // disabled={auth.currentUser ? true : false}
+      className="form-input"
+      onChange={handelChange}
+      {...otherProps}
+    />
     {label ? (
       <label
         className={`${

@@ -1,16 +1,14 @@
 import React from "react";
 import "../../styles/css/custom-button.styles.css";
-import { signInWithGoogle } from "../../firebase/firebase.utils";
+import { auth } from "../../firebase/firebase.utils";
 
-const CustomButton = (children, ...otherProps) => (
+const CustomButton = (children, isGoogleSignIn, ...otherProps) => (
   <button
+    disabled={auth.currentUser ? true : false}
     className={`${
       children.children === "Google" ? "google-button" : ""
     } custom-button btn-sm`}
-    /*onClick={
-      children.children == "SIGN IN WITH GOOGLE" ? { signInWithGoogle } : ""
-    }*/
-    onClick={signInWithGoogle}
+    {...otherProps}
   >
     {children.children}
   </button>

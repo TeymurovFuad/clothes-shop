@@ -3,7 +3,7 @@ import "firebase/firestore";
 import "firebase/analytics";
 import "firebase/database";
 import "firebase/auth";
-import { Date, error } from "jquery";
+// import { Date } from "jquery";
 // import { useParams, useHistory } from "react-router-dom";
 // import RegisterLogin from "../page/register-login/register-login.component";
 
@@ -29,21 +29,23 @@ export const createUSerProfileDcument = async (userAuth, ...additionalData) => {
 
   console.log("snapShot: ", snapShot);
 
+  console.log("Current User: ", auth.currentUser);
+
   console.log("snapShot.exists: ", snapShot.exists);
 
   if (!snapShot.exists) {
     const { displayName, email } = userAuth;
-    const createdAt = new Date();
+    // const createdAt = new Date();
 
     try {
       userRef.set({
         displayName,
         email,
-        createdAt,
+        // createdAt,
         ...additionalData,
       });
     } catch (error) {
-      console.log(console.error());
+      console.error(error);
       console.log("Error happened", error);
     }
   }
