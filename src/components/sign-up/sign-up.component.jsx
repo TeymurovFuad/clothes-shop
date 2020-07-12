@@ -40,8 +40,10 @@ class SignUp extends React.Component {
         password: "",
         confirmPassword: "",
       });
+      alert("Logged in successfully");
     } catch (error) {
       console.error(error);
+      alert(console.error(error));
     }
   };
 
@@ -57,7 +59,11 @@ class SignUp extends React.Component {
       <div className="sign-up">
         <h2 className="title">New User</h2>
         <span>Sign up with your credentials</span>
-        <form action="" onSubmit={this.handleSubmit} className="sign-up-form">
+        <form
+          action=""
+          onSubmit={this.handleSubmit}
+          className="form sign-up-form"
+        >
           <FormInput
             type="text"
             name="displayName"
