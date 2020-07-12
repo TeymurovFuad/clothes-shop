@@ -27,11 +27,18 @@ export const createUSerProfileDcument = async (userAuth, ...additionalData) => {
 
   const snapShot = await userRef.get();
 
-  console.log("snapShot: ", snapShot);
-
-  console.log("Current User: ", auth.currentUser);
-
-  console.log("snapShot.exists: ", snapShot.exists);
+  console.log(
+    "Name: ",
+    firestore.collection(`users/${userAuth.uid}/displayName`),
+    "Email: ",
+    auth.currentUser.email,
+    "\n\nCurrent User: ",
+    auth.currentUser,
+    "\n\nsnapShot: ",
+    snapShot,
+    "\n\nsnapShot.exists: ",
+    snapShot.exists
+  );
 
   if (!snapShot.exists) {
     const { displayName, email } = userAuth;
@@ -45,8 +52,7 @@ export const createUSerProfileDcument = async (userAuth, ...additionalData) => {
         ...additionalData,
       });
     } catch (error) {
-      console.error(error);
-      console.log("Error happened", error);
+      console.error("Error happened", error);
     }
   }
 
