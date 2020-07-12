@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "google-auth-library": "^6.0.2",
-    "jquery": "^1.12.4",
+    "jquery": "^3.5.0",
     "popper.js": "^1.16.1",
     "typescript": "^3.9.6"
   }
