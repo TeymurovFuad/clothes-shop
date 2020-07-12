@@ -3,6 +3,9 @@ import "firebase/firestore";
 import "firebase/analytics";
 import "firebase/database";
 import "firebase/auth";
+import { Date, error } from "jquery";
+// import { useParams, useHistory } from "react-router-dom";
+// import RegisterLogin from "../page/register-login/register-login.component";
 
 const config = {
   apiKey: "AIzaSyDa9UbXGEVyN6xpnTvNfZ44jakflR24qng",
@@ -16,31 +19,36 @@ const config = {
 };
 
 //ASYNC
-export const createUSerProfileDcument = async (userAuth, additionalData) => {
+export const createUSerProfileDcument = async (userAuth, ...additionalData) => {
   if (!userAuth) return;
+  const userRef = firestore.doc(`users/${userAuth.uid}`);
 
-  const userRef = firestore.doc(`user/${userAuth.uid}`);
+  console.log("userRef: ", userRef);
 
-  const snapShot = await userRef.get("");
+  const snapShot = await userRef.get();
+
+  console.log("snapShot: ", snapShot);
+
+  console.log("snapShot.exists: ", snapShot.exists);
 
   if (!snapShot.exists) {
     const { displayName, email } = userAuth;
-
     const createdAt = new Date();
 
     try {
-      await userRef.set({
+      userRef.set({
         displayName,
         email,
         createdAt,
         ...additionalData,
       });
     } catch (error) {
-      console.log("Error while creating a user", error.message);
+      console.log(console.error());
+      console.log("Error happened", error);
     }
-  } else {
-    return userRef;
   }
+
+  return userRef;
 };
 
 firebase.initializeApp(config);

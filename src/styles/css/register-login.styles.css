@@ -1,1 +1,1 @@
-.register-login{width:850px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;margin:30px auto}
+.register-login{width:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;margin:30px auto;padding:5px}.register-login>*{width:50%;float:left}

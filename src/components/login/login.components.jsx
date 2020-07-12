@@ -13,6 +13,7 @@ class Login extends React.Component {
       email: "",
       password: "",
     };
+    // this.handleClick = this.handleClick.bind(this);
   }
 
   handleSubmit = (event) => {
@@ -60,9 +61,7 @@ class Login extends React.Component {
           <br />
           <CustomButton type="submit">Sign In</CustomButton>
           &nbsp; &nbsp;
-          <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
-            Google
-          </CustomButton>
+          <CustomButton onClick={signInWithGoogle}>Google</CustomButton>
         </form>
       </div>
     );

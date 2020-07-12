@@ -2,7 +2,7 @@ import React from "react";
 
 import FormInput from "../../components/form-input/form-input.component";
 import CustomButton from "../../components/custom-button/custom-button.component";
-import { auth, createUSerProfileDcument } from "../../firebase/firebase.utils";
+// import { auth, createUSerProfileDcument } from "../../firebase/firebase.utils";
 
 class SignUp extends React.Component {
   constructor() {
@@ -16,34 +16,34 @@ class SignUp extends React.Component {
     };
   }
 
-  handleSubmit = async (event) => {
-    event.preventDefault();
+  // handleSubmit = async (event) => {
+  //   event.preventDefault();
 
-    const { displayName, email, password, confirmPassword } = this.state;
+  //   const { displayName, email, password, confirmPassword } = this.state;
 
-    if (password !== confirmPassword) {
-      alert("The passwords do not datch");
-      return;
-    }
+  //   if (password !== confirmPassword) {
+  //     alert("The passwords do not datch");
+  //     return;
+  //   }
 
-    try {
-      const { user } = await auth.createUserWithEmailAndPassword(
-        email,
-        password
-      );
+  //   try {
+  //     const { user } = await auth.createUserWithEmailAndPassword(
+  //       email,
+  //       password
+  //     );
 
-      await createUSerProfileDcument(user, { displayName });
+  //     // await createUSerProfileDcument(user, { displayName });
 
-      this.setState({
-        displayName: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
-      });
-    } catch (error) {
-      console.error();
-    }
-  };
+  //     this.setState({
+  //       displayName: "",
+  //       email: "",
+  //       password: "",
+  //       confirmPassword: "",
+  //     });
+  //   } catch (error) {
+  //     console.error();
+  //   }
+  // };
 
   handleChange = (event) => {
     const { name, value } = event.target;
