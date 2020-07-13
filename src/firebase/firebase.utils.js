@@ -30,7 +30,7 @@ export const createUSerProfileDcument = async (userAuth, ...additionalData) => {
   console.log(
     "Name: ",
     firestore.collection(`users/${userAuth.uid}/displayName`),
-    "Email: ",
+    "\n\nEmail: ",
     auth.currentUser.email,
     "\n\nCurrent User: ",
     auth.currentUser,

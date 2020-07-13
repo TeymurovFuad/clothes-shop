@@ -13,7 +13,6 @@ class Login extends React.Component {
       email: "",
       password: "",
     };
-    // this.handleClick = this.handleClick.bind(this);
   }
 
   handleSubmit = async (event) => {
@@ -43,24 +42,19 @@ class Login extends React.Component {
 
         {/* Login form */}
         <form onSubmit={this.handleSubmit}>
-          {/* <label htmlFor="loginMail">Email </label> */}
           <FormInput
             label="Email"
             name="email"
             id="loginMail"
             type="email"
-            // placeholder="example@sample.com"
             value={this.state.email}
             required
             handelChange={this.handelChange}
           />
-          {/* <label htmlFor="loginpassword">Password </label> */}
           <FormInput
             label="Password"
             name="password"
-            // id="loginpassword"
             type="password"
-            // placeholder="************"
             value={this.state.password}
             required
             handelChange={this.handelChange}
