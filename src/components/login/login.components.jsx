@@ -12,6 +12,7 @@ class Login extends React.Component {
     this.state = {
       email: "",
       password: "",
+      err: null,
     };
   }
 
@@ -25,6 +26,7 @@ class Login extends React.Component {
       this.setState({ email: "", password: "" });
     } catch (error) {
       console.error("Error happened", error);
+      this.setState({ err: error });
     }
   };
 
@@ -39,6 +41,11 @@ class Login extends React.Component {
       <div className="login">
         <h2>Existing user</h2>
         <span>Login with your credentials :</span>
+        {this.state.err ? (
+          <span className="text-warning">{this.state.error}</span>
+        ) : (
+          ""
+        )}
 
         {/* Login form */}
         <form onSubmit={this.handleSubmit}>
@@ -59,6 +66,9 @@ class Login extends React.Component {
             required
             handelChange={this.handelChange}
           />
+          <span className="text-danger">
+            {this.state.err ? this.state.err.message : ""}
+          </span>
           <br />
           <CustomButton type="submit">Sign In</CustomButton>
           &nbsp; &nbsp;

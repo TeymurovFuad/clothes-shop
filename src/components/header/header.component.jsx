@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import "../../styles/css/header.styles.css";
 import { ReactComponent as Logo } from "../../assests/crown.svg";
 import { auth } from "../../firebase/firebase.utils";
+import { connect } from "react-redux";
 
-const Header = () => (
+const Header = ({ currentUser }) => (
   <nav className="navbar navbar-light bg-light">
     <Link className="navbar-brand" to="/">
       <Logo className="logo"></Logo>
@@ -35,4 +36,8 @@ const Header = () => (
   </nav>
 );
 
-export default Header;
+const mapSTateToProp = (state) => ({
+  currentUser: state.user.currentUser,
+});
+
+export default connect(mapSTateToProp)(Header);

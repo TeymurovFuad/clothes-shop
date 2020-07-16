@@ -57,6 +57,7 @@ export const createUSerProfileDcument = async (userAuth, ...additionalData) => {
       });
     } catch (error) {
       console.error("Error happened", error);
+      alert("Error happened");
     }
   }
 

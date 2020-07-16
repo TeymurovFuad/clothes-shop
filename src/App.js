@@ -7,7 +7,10 @@ import { Switch, Route /*, Link*/ } from "react-router-dom";
 import "../src/styles/css/App.css";
 import "../src/styles/css/header.styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+
 import { auth, createUSerProfileDcument } from "./firebase/firebase.utils";
+import { connect } from "react-redux";
+import { setCurrentUser } from "./redux/user.actions";
 
 // const HatsPage = (props) => {
 //   console.log("<HatsPage>");
@@ -49,31 +52,23 @@ import { auth, createUSerProfileDcument } from "./firebase/firebase.utils";
 // };
 
 class App extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      currentUser: null,
-    };
-  }
-
   unsubscribeFromAuth = null;
 
   componentDidMount() {
+    const { setCurrentUser } = this.props;
+
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
         const userRef = await createUSerProfileDcument(userAuth);
 
         userRef.onSnapshot((snapShot) => {
-          this.setState({
-            currentUser: {
-              id: snapShot.id,
-              ...snapShot.data(),
-            },
+          setCurrentUser({
+            id: snapShot.id,
+            ...snapShot.data(),
           });
         });
       } else {
-        this.setState({ currentUser: userAuth });
+        setCurrentUser({ userAuth });
       }
     });
   }
@@ -87,7 +82,7 @@ class App extends React.Component {
       <div>
         {/* <HomePage /> */}
         {/* https://www.udemy.com/course/complete-react-developer-zero-to-mastery/learn/lecture/14974354#overview */}
-        <Header currentUser={this.state.user} />
+        <Header />
         <Switch>
           {/* <Route path="/topicList" component={TopicList} /> */}
           {/* <Route path="/topicList/:ID" component={TopicDetails} /> */}
@@ -101,4 +96,8 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const mapDispatchProps = (dispatch) => ({
+  setCurrentUser: (user) => dispatch(setCurrentUser(user)),
+});
+
+export default connect(null, mapDispatchProps)(App);
