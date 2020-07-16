@@ -27,6 +27,8 @@ export const createUSerProfileDcument = async (userAuth, ...additionalData) => {
 
   const snapShot = await userRef.get();
 
+  // Console data
+  console.group("User data: ");
   console.log(
     "Name: ",
     firestore.collection(`users/${userAuth.uid}/displayName`),
@@ -39,6 +41,8 @@ export const createUSerProfileDcument = async (userAuth, ...additionalData) => {
     "\n\nsnapShot.exists: ",
     snapShot.exists
   );
+  console.groupEnd();
+  // End console data
 
   if (!snapShot.exists) {
     const { displayName, email } = userAuth;
