@@ -3,7 +3,7 @@ import HomePage from "./page/home/homepage.component";
 import ShopPage from "./page/shop/shop.component";
 import RegisterLogin from "./page/register-login/register-login.component";
 import Header from "./components/header/header.component";
-import { Switch, Route /*, Link*/ } from "react-router-dom";
+import { Switch, Route /*, Link*/, Redirect } from "react-router-dom";
 import "../src/styles/css/App.css";
 import "../src/styles/css/header.styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -88,7 +88,13 @@ class App extends React.Component {
           {/* <Route path="/topicList/:ID" component={TopicDetails} /> */}
           <Route exact path="/" component={HomePage} />
           <Route exact path="/shop" component={ShopPage} />
-          <Route exact path="/register" component={RegisterLogin} />
+          <Route
+            exact
+            path="/register"
+            render={() =>
+              !this.props.currentUser ? <Redirect to="/" /> : <RegisterLogin />
+            }
+          />
           {/* <Route exact path="/shop/hats" component={HatsPage} /> */}
         </Switch>
       </div>
@@ -96,8 +102,12 @@ class App extends React.Component {
   }
 }
 
+const mapStateProps = ({ user }) => ({
+  currentUser: user.currentUser,
+});
+
 const mapDispatchProps = (dispatch) => ({
   setCurrentUser: (user) => dispatch(setCurrentUser(user)),
 });
 
-export default connect(null, mapDispatchProps)(App);
+export default connect(mapStateProps, mapDispatchProps)(App);
