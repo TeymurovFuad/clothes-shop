@@ -25,7 +25,7 @@ class Login extends React.Component {
       await auth.signInWithEmailAndPassword(email, password);
       this.setState({ email: "", password: "" });
     } catch (error) {
-      console.error("Error happened", error);
+      console.error("Login.component -> Error happened", error);
       this.setState({ err: error });
     }
   };

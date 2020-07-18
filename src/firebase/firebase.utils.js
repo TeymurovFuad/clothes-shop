@@ -56,7 +56,7 @@ export const createUSerProfileDcument = async (userAuth, ...additionalData) => {
         ...additionalData,
       });
     } catch (error) {
-      console.error("Error happened", error);
+      console.error("Firebase.utils -> Error happened", error);
       alert("Error happened");
     }
   }
