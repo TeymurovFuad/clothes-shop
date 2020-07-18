@@ -4,8 +4,10 @@ import "../../styles/css/header.styles.css";
 import { ReactComponent as Logo } from "../../assests/crown.svg";
 import { auth } from "../../firebase/firebase.utils";
 import { connect } from "react-redux";
+import CardICon from "../card/card-icon.component";
+import CardDropdown from "../card/card-dropdown.component";
 
-const Header = ({ currentUser }) => (
+const Header = ({ currentUser, hidden }) => (
   <nav className="navbar navbar-light bg-light">
     <Link className="navbar-brand" to="/">
       <Logo className="logo"></Logo>
@@ -32,12 +34,15 @@ const Header = ({ currentUser }) => (
           Logout
         </Link>
       )}
+      <CardICon />
     </div>
+    {hidden ? null : <CardDropdown />}
   </nav>
 );
 
-const mapSTateToProp = (state) => ({
-  currentUser: state.user.currentUser,
+const mapSTateToProp = ({ user: { currentUser }, card: { hidden } }) => ({
+  currentUser,
+  hidden,
 });
 
 export default connect(mapSTateToProp)(Header);
