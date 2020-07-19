@@ -1,7 +1,10 @@
-import cardActionTypes from "./card.types";
+import { cardActionTypes } from "./card.types";
 
-const toggleCardIcon = () => ({
+export const toggleCardIcon = () => ({
   type: cardActionTypes.toggleCardIcon,
 });
 
-export default toggleCardIcon;
+export const addItem = (item) => ({
+  type: cardActionTypes.addItem,
+  payload: item,
+});

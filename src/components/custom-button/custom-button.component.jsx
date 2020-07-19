@@ -5,7 +5,7 @@ import { auth } from "../../firebase/firebase.utils";
 const CustomButton = ({ children, isGoogleSignIn, ...otherProps }) => (
   <button
     disabled={auth.currentUser ? true : false}
-    className={`${isGoogleSignIn ? "google-button" : ""} custom-button btn-sm`}
+    className={`${isGoogleSignIn ? "google-sign-in" : ""} custom-button btn-sm`}
     {...otherProps}
   >
     {children}
