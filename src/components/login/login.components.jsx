@@ -70,11 +70,13 @@ class Login extends React.Component {
             {this.state.err ? this.state.err.message : ""}
           </span>
           <br />
-          <CustomButton type="submit">Sign In</CustomButton>
-          &nbsp; &nbsp;
-          <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
-            Google
-          </CustomButton>
+          <div className="btn-group btn-group-sm w-100 d-flex justify-content-center">
+            <CustomButton type="submit">Sign In</CustomButton>
+            &nbsp; &nbsp; &nbsp; &nbsp;
+            <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
+              Google
+            </CustomButton>
+          </div>
         </form>
       </div>
     );

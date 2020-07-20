@@ -64,38 +64,44 @@ class SignUp extends React.Component {
           onSubmit={this.handleSubmit}
           className="form sign-up-form"
         >
-          <FormInput
-            type="text"
-            name="displayName"
-            onChange={this.handleChange}
-            value={displayName}
-            label="Name"
-            required
-          />
-          <FormInput
-            type="email"
-            name="email"
-            onChange={this.handleChange}
-            value={email}
-            label="Email"
-            required
-          />
-          <FormInput
-            type="password"
-            name="password"
-            onChange={this.handleChange}
-            value={password}
-            label="Passwrod"
-            required
-          />
-          <FormInput
-            type="password"
-            name="confirmPassword"
-            onChange={this.handleChange}
-            value={confirmPassword}
-            label="Confirm Password"
-            required
-          />
+          <div className="input-group">
+            <FormInput
+              type="text"
+              name="displayName"
+              onChange={this.handleChange}
+              value={displayName}
+              label="Name"
+              required
+            />
+            &nbsp; &nbsp;
+            <FormInput
+              type="email"
+              name="email"
+              onChange={this.handleChange}
+              value={email}
+              label="Email"
+              required
+            />
+          </div>
+          <div className="input-group">
+            <FormInput
+              type="password"
+              name="password"
+              onChange={this.handleChange}
+              value={password}
+              label="Passwrod"
+              required
+            />
+            &nbsp; &nbsp;
+            <FormInput
+              type="password"
+              name="confirmPassword"
+              onChange={this.handleChange}
+              value={confirmPassword}
+              label="Confirm Password"
+              required
+            />
+          </div>
           <CustomButton type="submit">Sing Up</CustomButton>
         </form>
       </div>

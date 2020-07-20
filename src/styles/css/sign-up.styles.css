@@ -1,1 +1,1 @@
-.sign-up{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;width:380px}.sign-up .title{margin:10px 0}
+.sign-up{position:relative;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;width:50%;border-left:1px solid black}.sign-up .title{margin:10px 0}

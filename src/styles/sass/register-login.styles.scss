@@ -6,7 +6,8 @@
   padding: 5px;
 
   & > * {
-    width: 50%;
-    float: left;
+    // width: 50%;
+    padding: 0 5%;
+    align-items: center;
   }
 }

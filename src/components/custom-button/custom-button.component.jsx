@@ -2,10 +2,17 @@ import React from "react";
 import "../../styles/css/custom-button.styles.css";
 import { auth } from "../../firebase/firebase.utils";
 
-const CustomButton = ({ children, isGoogleSignIn, ...otherProps }) => (
+const CustomButton = ({
+  inverted,
+  children,
+  isGoogleSignIn,
+  ...otherProps
+}) => (
   <button
     disabled={auth.currentUser ? true : false}
-    className={`${isGoogleSignIn ? "google-sign-in" : ""} custom-button btn-sm`}
+    className={`${inverted ? "inverted" : ""} ${
+      isGoogleSignIn ? "google-sign-in" : ""
+    } custom-button btn-sm`}
     {...otherProps}
   >
     {children}
