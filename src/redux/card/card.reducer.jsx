@@ -7,7 +7,7 @@ const initialState = {
 };
 
 const cardReducer = (state = initialState, action) => {
-  switch (action.types) {
+  switch (action.type) {
     case cardActionTypes.toggleCardICon:
       return {
         ...state,
