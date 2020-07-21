@@ -19,7 +19,7 @@ const CollectionItem = ({ item, addItem }) => {
         <span clanme="name card-title col-12">{name}</span>
         <span clanme="price card-title col-12">{price}₼</span>
       </div>
-      <CustomButton onClick={() => addItem(item)} inverted>
+      <CustomButton onClick={() => addItem(item)} addToCard>
         Add to card
       </CustomButton>
     </div>

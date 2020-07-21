@@ -3,14 +3,14 @@ import "../../styles/css/custom-button.styles.css";
 import { auth } from "../../firebase/firebase.utils";
 
 const CustomButton = ({
-  inverted,
+  addToCard,
   children,
   isGoogleSignIn,
   ...otherProps
 }) => (
   <button
     disabled={auth.currentUser ? true : false}
-    className={`${inverted ? "inverted" : ""} ${
+    className={`${addToCard ? "addToCard" : ""} ${
       isGoogleSignIn ? "google-sign-in" : ""
     } custom-button btn-sm`}
     {...otherProps}
