@@ -14,6 +14,7 @@ const CardDropdown = ({ cardItems }) => (
     <CustomButton>Checkout</CustomButton>
   </div>
 );
+console.log("card-dropdown");
 
 const mapStateToProps = ({ card: { cardItems } }) => ({
   cardItems,

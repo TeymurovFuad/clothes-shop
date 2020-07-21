@@ -11,6 +11,8 @@ const CardICon = ({ toggleCardIcon }) => (
   </div>
 );
 
+console.log("card-icon");
+
 const mapDispatchProps = (dispatch) => ({
   toggleCardIcon: () => dispatch(toggleCardIcon()),
 });

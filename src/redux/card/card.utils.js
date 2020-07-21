@@ -10,7 +10,6 @@ export const addItemToCard = (cardItems, cardItemToAdd) => {
         : cardItem
     );
   }
-  console.log(cardItems);
 
   return [...cardItems, { ...cardItemToAdd, quantity: 1 }];
 };

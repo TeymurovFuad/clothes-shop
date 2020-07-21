@@ -1,7 +1,8 @@
 .card-dropdown {
   position: absolute;
   width: auto;
-  height: auto;
+  height: 200px;
+  // max-height: 200px;
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -12,7 +13,7 @@
   z-index: 5;
 
   .card-items {
-    height: 50px;
+    height: auto;
     display: flex;
     flex-direction: column;
     overflow: scroll;

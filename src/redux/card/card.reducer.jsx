@@ -1,5 +1,5 @@
 import { cardActionTypes } from "./card.types";
-import { addItemToCard } from "./cadr.utils";
+import { addItemToCard } from "./card.utils";
 
 const initialState = {
   hidden: true,
@@ -8,7 +8,7 @@ const initialState = {
 
 const cardReducer = (state = initialState, action) => {
   switch (action.type) {
-    case cardActionTypes.toggleCardICon:
+    case cardActionTypes.toggleCardIcon:
       return {
         ...state,
         hidden: !state.hidden,
