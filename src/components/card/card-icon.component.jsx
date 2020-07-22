@@ -3,8 +3,9 @@ import "../../styles/css/card-icon.styles.css";
 import { ReactComponent as ShoppingBagIcon } from "../../assests/shopping-bag.svg";
 import { connect } from "react-redux";
 import { toggleCardIcon } from "../../redux/card/card.actions";
+import { selectCardItemsCount } from "./card.selectors";
 
-const CardICon = ({ toggleCardIcon, totalItems }) => (
+const CardIcon = ({ toggleCardIcon, totalItems }) => (
   <div className="card-icon" onClick={toggleCardIcon}>
     <ShoppingBagIcon className="shopping-icon" />
     {/* style="background-color:"{`${totalItems< 10? "ff"+totalItems+"fff":"ff"+totalItems+"f"+totalItems%10+"ff"}`} */}
@@ -18,11 +19,11 @@ const mapDispatchProps = (dispatch) => ({
   toggleCardIcon: () => dispatch(toggleCardIcon()),
 });
 
-const mapStateToProps = ({ card: { cardItems } }) => ({
-  totalItems: cardItems.reduce(
-    (accumulatedQuantity, cardItem) => accumulatedQuantity + cardItem.quantity,
-    0
-  ),
+const mapStateToProps = (state) => ({
+  totalItems: selectCardItemsCount(state),
 });
 
-export default connect(mapStateToProps, mapDispatchProps)(CardICon);
+export default connect(mapStateToProps, mapDispatchProps)(CardIcon);
+
+// const err = new Error();
+// throw err.message;
