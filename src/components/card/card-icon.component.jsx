@@ -3,7 +3,7 @@ import "../../styles/css/card-icon.styles.css";
 import { ReactComponent as ShoppingBagIcon } from "../../assests/shopping-bag.svg";
 import { connect } from "react-redux";
 import { toggleCardIcon } from "../../redux/card/card.actions";
-import { selectCardItemsCount } from "./card.selectors";
+import { selectCardItemsCount } from "../../redux/card/card.selectors";
 
 const CardIcon = ({ toggleCardIcon, totalItems }) => (
   <div className="card-icon" onClick={toggleCardIcon}>
