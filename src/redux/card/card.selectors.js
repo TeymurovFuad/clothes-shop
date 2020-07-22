@@ -2,6 +2,11 @@ import { createSelector } from "reselect";
 
 const selectCard = (state) => state.card;
 
+export const selectCardHidden = createSelector(
+  [selectCard],
+  (card) => card.hidden
+);
+
 export const selectCardItems = createSelector(
   [selectCard],
   (card) => card.cardItems

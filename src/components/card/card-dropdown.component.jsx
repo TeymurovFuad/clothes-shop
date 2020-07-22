@@ -3,6 +3,8 @@ import CustomButton from "../custom-button/custom-button.component";
 import "../../styles/css/card-dropdown.styles.css";
 import CardItem from "./card-item.component";
 import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
+import { selectCardItems } from "../../redux/card/card.selectors";
 
 const CardDropdown = ({ cardItems }) => (
   <div className="card-dropdown">
@@ -16,8 +18,8 @@ const CardDropdown = ({ cardItems }) => (
 );
 console.log("card-dropdown");
 
-const mapStateToProps = ({ card: { cardItems } }) => ({
-  cardItems,
+const mapStateToProps = createStructuredSelector({
+  cardItems: selectCardItems,
 });
 
 export default connect(mapStateToProps)(CardDropdown);

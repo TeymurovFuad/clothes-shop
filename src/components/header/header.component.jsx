@@ -6,6 +6,9 @@ import { auth } from "../../firebase/firebase.utils";
 import { connect } from "react-redux";
 import CardICon from "../card/card-icon.component";
 import CardDropdown from "../card/card-dropdown.component";
+import { createStructuredSelector } from "reselect";
+import { selectCardHidden } from "../../redux/card/card.selectors";
+import { selectCurrentUser } from "../../redux/user/user.selector";
 
 const Header = ({ currentUser, hidden }) => (
   <nav className="navbar navbar-light bg-light">
@@ -40,9 +43,9 @@ const Header = ({ currentUser, hidden }) => (
   </nav>
 );
 
-const mapSTateToProp = ({ user: { currentUser }, card: { hidden } }) => ({
-  currentUser,
-  hidden,
+const mapSTateToProp = createStructuredSelector({
+  currentUser: selectCurrentUser,
+  hidden: selectCardHidden,
 });
 
 export default connect(mapSTateToProp)(Header);
