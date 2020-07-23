@@ -22,5 +22,13 @@ export const selectCardItemsCount = createSelector(
     )
 );
 
+export const selectCardTotal = createSelector([selectCardItems], (cardItems) =>
+  cardItems.reduce(
+    (accumulatedQuantity, cardItem) =>
+      accumulatedQuantity + cardItem.quantity * cardItem.price,
+    0
+  )
+);
+
 // const err = new Error();
 // throw err;

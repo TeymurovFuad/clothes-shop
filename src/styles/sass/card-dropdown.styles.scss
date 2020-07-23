@@ -1,16 +1,16 @@
 .card-dropdown {
   position: absolute;
+  top: 90px;
+  right: 40px;
+  z-index: 5;
+  background-color: white;
+  border: 1px solid black;
   width: auto;
   height: 200px;
   // max-height: 200px;
   display: flex;
   flex-direction: column;
   padding: 20px;
-  border: 1px solid black;
-  background-color: white;
-  top: 90px;
-  right: 40px;
-  z-index: 5;
 
   .card-items {
     height: auto;
@@ -22,4 +22,11 @@
   button {
     margin-top: auto;
   }
+}
+
+.empty-card {
+  position: absolute;
+  top: 50%;
+  right: 32vw;
+  z-index: 5;
 }

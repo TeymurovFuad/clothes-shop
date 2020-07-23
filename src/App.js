@@ -3,6 +3,7 @@ import HomePage from "./page/home/homepage.component";
 import ShopPage from "./page/shop/shop.component";
 import RegisterLogin from "./page/register-login/register-login.component";
 import Header from "./components/header/header.component";
+import Checkout from "./page/checkout/checkout.component";
 import { Switch, Route /*, Link*/, Redirect } from "react-router-dom";
 import "../src/styles/css/App.css";
 import "../src/styles/css/header.styles.css";
@@ -98,6 +99,7 @@ class App extends React.Component {
               !this.props.currentUser ? <Redirect to="/" /> : <RegisterLogin />
             }
           />
+          <Route exact path="/checkout" component={Checkout} />
           {/* <Route exact path="/shop/hats" component={HatsPage} /> */}
         </Switch>
       </div>
