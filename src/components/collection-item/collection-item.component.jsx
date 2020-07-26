@@ -17,7 +17,7 @@ const CollectionItem = ({ item, addItem }) => {
       ></div>
       <div className="collection-footer card-body">
         <span clanme="name card-title col-12">{name}</span>
-        <span clanme="price card-title col-12">{price}₼</span>
+        <span clanme="price card-title col-12">{price}&#8380;</span>
       </div>
       <CustomButton onClick={() => addItem(item)} addToCard>
         Add to card
