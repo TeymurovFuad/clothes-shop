@@ -7,7 +7,11 @@ import {
   faMinusCircle,
 } from "@fortawesome/fontawesome-free-solid";
 
-const CheckoutItem = ({ cardItem: { name, imageUrl, quantity, price } }) => {
+import { connect } from "react-redux";
+import { removeItem, addItem, reduceItem } from "../../redux/card/card.actions";
+
+const CheckoutItem = ({ cardItem, removeItem, addItem, reduceItem }) => {
+  const { name, imageUrl, quantity, price } = cardItem;
   return (
     <tr>
       <th scope="row">1</th>
@@ -19,23 +23,36 @@ const CheckoutItem = ({ cardItem: { name, imageUrl, quantity, price } }) => {
       </td>
       <td>{name}</td>
       <td>{price}</td>
-      <td>
-        <span>
+      <td className="d-flex flex-row align-items-baseline">
+        <span
+          onClick={() =>
+            cardItem.quantity > 1 ? reduceItem(cardItem) : removeItem(cardItem)
+          }
+          className="btn"
+        >
           <FontAwesomeIcon className="text-warning" icon={faMinusCircle} />
         </span>
         &nbsp;
         {quantity}
         &nbsp;
-        <span>
+        <span onClick={() => addItem(cardItem)} className="btn">
           <FontAwesomeIcon className="text-warning" icon={faPlusCircle} />
         </span>
       </td>
       <td>{price * quantity}&#8380;</td>
       <td>
-        <FontAwesomeIcon className="text-danger" icon={faTrash} />
+        <button onClick={() => removeItem(cardItem)} className="btn">
+          <FontAwesomeIcon className="text-danger" icon={faTrash} />
+        </button>
       </td>
     </tr>
   );
 };
 
-export default CheckoutItem;
+const mapDispatchProps = (dispatch) => ({
+  removeItem: (item) => dispatch(removeItem(item)),
+  addItem: (item) => dispatch(addItem(item)),
+  reduceItem: (item) => dispatch(reduceItem(item)),
+});
+
+export default connect(null, mapDispatchProps)(CheckoutItem);

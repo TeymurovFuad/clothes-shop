@@ -11,3 +11,19 @@ export const addItem = (item) => {
     payload: item,
   };
 };
+
+export const reduceItem = (item) => {
+  console.log("addItem action was called");
+  return {
+    type: cardActionTypes.reduceItem,
+    payload: item,
+  };
+};
+
+export const removeItem = (item) => {
+  console.log("removeItem action was called");
+  return {
+    type: cardActionTypes.removeItem,
+    payload: item,
+  };
+};

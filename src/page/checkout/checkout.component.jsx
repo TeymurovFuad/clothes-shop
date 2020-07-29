@@ -34,10 +34,7 @@ const Checkout = ({ cardItems, total }) => (
       </tbody>
       <tfoot>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td colSpan="4"></td>
           <th>You will pay:</th>
           <th>{total}&#8380;</th>
         </tr>

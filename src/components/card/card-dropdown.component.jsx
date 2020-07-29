@@ -7,7 +7,6 @@ import { createStructuredSelector } from "reselect";
 import { selectCardItems } from "../../redux/card/card.selectors";
 import { withRouter } from "react-router-dom";
 import { toggleCardIcon } from "../../redux/card/card.actions";
-import { decodedTextSpanIntersectsWith } from "typescript";
 
 const CardDropdown = ({ cardItems, history, dispatch }) => {
   console.log("dispatch: ", dispatch);

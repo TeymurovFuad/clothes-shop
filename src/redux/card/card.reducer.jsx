@@ -1,5 +1,5 @@
 import { cardActionTypes } from "./card.types";
-import { addItemToCard } from "./card.utils";
+import { addItemToCard, reduceItemFromCard } from "./card.utils";
 
 const initialState = {
   hidden: true,
@@ -17,6 +17,18 @@ const cardReducer = (state = initialState, action) => {
       return {
         ...state,
         cardItems: addItemToCard(state.cardItems, action.payload),
+      };
+    case cardActionTypes.reduceItem:
+      return {
+        ...state,
+        cardItems: reduceItemFromCard(state.cardItems, action.payload),
+      };
+    case cardActionTypes.removeItem:
+      return {
+        ...state,
+        cardItems: state.cardItems.filter(
+          (cardItem) => cardItem.id != action.payload.id
+        ),
       };
     default:
       return state;
