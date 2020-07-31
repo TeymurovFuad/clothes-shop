@@ -41,8 +41,6 @@ const CardDropdown = ({ cardItems, history, dispatch }) => {
     </div>
   );
 };
-const err = new Error();
-console.error("error in cardDropDown: ", err.message);
 console.log("card-dropdown");
 
 const mapStateToProps = createStructuredSelector({

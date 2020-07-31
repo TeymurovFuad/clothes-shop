@@ -1,4 +1,4 @@
-// ADD ITEM TO CARD
+// ADD CARD INCREASE ITEM TO CARD
 
 export const addItemToCard = (cardItems, cardItemToAdd) => {
   const existingCardItem = cardItems.find(
@@ -16,7 +16,7 @@ export const addItemToCard = (cardItems, cardItemToAdd) => {
   return [...cardItems, { ...cardItemToAdd, quantity: 1 }];
 };
 
-// RDUCE CARD ITEM
+// RDUCE CARD ITEM FROM CARD
 
 export const reduceItemFromCard = (cardItems, cardItemToReduce) => {
   const existingCardItem = cardItems.find(

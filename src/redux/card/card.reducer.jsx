@@ -27,7 +27,7 @@ const cardReducer = (state = initialState, action) => {
       return {
         ...state,
         cardItems: state.cardItems.filter(
-          (cardItem) => cardItem.id != action.payload.id
+          (cardItem) => cardItem.id !== action.payload.id
         ),
       };
     default:
