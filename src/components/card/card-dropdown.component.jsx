@@ -22,7 +22,7 @@ const CardDropdown = ({ cardItems, history, dispatch }) => {
           </span>
         </div>
       ) : (
-        <div class="alert alert-danger" role="alert">
+        <div className="alert alert-danger" role="alert">
           Card is empty
         </div>
       )}

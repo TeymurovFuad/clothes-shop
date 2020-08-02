@@ -10,11 +10,11 @@ import {
 import { connect } from "react-redux";
 import { removeItem, addItem, reduceItem } from "../../redux/card/card.actions";
 
-const CheckoutItem = ({ cardItem, removeItem, addItem, reduceItem }) => {
+const CheckoutItem = ({ cardItem, removeItem, addItem, reduceItem, index }) => {
   const { name, imageUrl, quantity, price } = cardItem;
   return (
     <tr>
-      <th scope="row">1</th>
+      <th scope="row">{index}</th>
       <td className="imgHover">
         <img src={imageUrl} alt={name} />
         <span className="large">
