@@ -4,8 +4,8 @@ import CustomButton from "../custom-button/custom-button.component";
 import { connect } from "react-redux";
 import { addItem } from "../../redux/card/card.actions";
 
-console.log("collection item");
 const CollectionItem = ({ item, addItem }) => {
+  console.log("collection item");
   const { name, price, imageUrl } = item;
   return (
     <div className="collection-item card text-center">

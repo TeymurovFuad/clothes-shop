@@ -4,6 +4,7 @@ import ShopPage from "./page/shop/shop.component";
 import RegisterLogin from "./page/register-login/register-login.component";
 import Header from "./components/header/header.component";
 import Checkout from "./page/checkout/checkout.component";
+// import CategoryPage from "./page/category/category.component";
 import { Switch, Route /*, Link*/, Redirect } from "react-router-dom";
 import "../src/styles/css/App.css";
 import "../src/styles/css/header.styles.css";
@@ -91,7 +92,7 @@ class App extends React.Component {
           {/* <Route path="/topicList" component={TopicList} /> */}
           {/* <Route path="/topicList/:ID" component={TopicDetails} /> */}
           <Route exact path="/" component={HomePage} />
-          <Route exact path="/shop" component={ShopPage} />
+          <Route path="/shop" component={ShopPage} />
           <Route
             exact
             path="/register"
@@ -100,7 +101,7 @@ class App extends React.Component {
             }
           />
           <Route exact path="/checkout" component={Checkout} />
-          {/* <Route exact path="/shop/hats" component={HatsPage} /> */}
+          {/* <Route exact path="/shop/:categoryId" component={CategoryPage} /> */}
         </Switch>
       </div>
     );
