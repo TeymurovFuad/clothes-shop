@@ -2,6 +2,7 @@ import React from "react";
 import CheckoutItem from "../../components/checkout/checkout-item.component";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
+import StripeCheckoutButton from "../../components/stripe-button/stripe-button.component";
 
 import "../../styles/css/checkout.styles.css";
 
@@ -45,6 +46,7 @@ const Checkout = ({ cardItems, total }) => {
           </tr>
         </tfoot>
       </table>
+      <StripeCheckoutButton price={total} />
     </div>
   );
 };
