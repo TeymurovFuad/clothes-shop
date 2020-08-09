@@ -13,7 +13,7 @@ export const addItem = (item) => {
 };
 
 export const reduceItem = (item) => {
-  console.log("addItem action was called");
+  console.log("reduceItem action was called");
   return {
     type: cardActionTypes.reduceItem,
     payload: item,

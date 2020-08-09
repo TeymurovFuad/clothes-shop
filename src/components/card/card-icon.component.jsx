@@ -18,7 +18,7 @@ const CardIcon = ({ toggleCardIcon, totalItems }) => (
 
 console.log("card-icon");
 
-const mapDispatchProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch) => ({
   toggleCardIcon: () => dispatch(toggleCardIcon()),
 });
 
@@ -26,7 +26,7 @@ const mapStateToProps = createStructuredSelector({
   totalItems: selectCardItemsCount,
 });
 
-export default connect(mapStateToProps, mapDispatchProps)(CardIcon);
+export default connect(mapStateToProps, mapDispatchToProps)(CardIcon);
 
 // const err = new Error();
 // throw err.message;

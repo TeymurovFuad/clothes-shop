@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 
-import userReducer from "./user.reducer";
+import userReducer from "./user/user.reducer";
 import cardReducer from "./card/card.reducer";
 import directoryReducer from "./directory/directory.reducer";
 import shopReducer from "./shop/shop.reducer";

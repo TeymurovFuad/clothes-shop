@@ -49,10 +49,10 @@ const CheckoutItem = ({ cardItem, removeItem, addItem, reduceItem, index }) => {
   );
 };
 
-const mapDispatchProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch) => ({
   removeItem: (item) => dispatch(removeItem(item)),
   addItem: (item) => dispatch(addItem(item)),
   reduceItem: (item) => dispatch(reduceItem(item)),
 });
 
-export default connect(null, mapDispatchProps)(CheckoutItem);
+export default connect(null, mapDispatchToProps)(CheckoutItem);
