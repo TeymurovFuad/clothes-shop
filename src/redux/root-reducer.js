@@ -5,7 +5,7 @@ import cardReducer from "./card/card.reducer";
 import directoryReducer from "./directory/directory.reducer";
 import shopReducer from "./shop/shop.reducer";
 
-//TO CACHE DATA
+//TO  CACHE DATA
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
