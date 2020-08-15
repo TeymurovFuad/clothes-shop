@@ -32,6 +32,7 @@ const CardDropdown = ({ cardItems, history, dispatch }) => {
             history.push("checkout");
             dispatch(toggleCardIcon());
           }}
+          checkoutButton
         >
           Checkout
         </CustomButton>

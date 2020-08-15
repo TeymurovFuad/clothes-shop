@@ -4,19 +4,27 @@ import { auth } from "../../firebase/firebase.utils";
 
 const CustomButton = ({
   addToCard,
-  children,
   isGoogleSignIn,
+  checkoutButton,
+  children,
   ...otherProps
-}) => (
-  <button
-    disabled={auth.currentUser ? true : false}
-    className={`${addToCard ? "addToCard" : ""} ${
-      isGoogleSignIn ? "google-sign-in" : ""
-    } custom-button btn-sm`}
-    {...otherProps}
-  >
-    {children}
-  </button>
-);
+}) => {
+  console.log(
+    "custom button component",
+    auth.currentUser ? true : false,
+    checkoutButton ? true : false
+  );
+  return (
+    <button
+      disabled={auth.currentUser && checkoutButton ? true : false}
+      className={`${addToCard ? "addToCard" : ""} ${
+        isGoogleSignIn ? "google-sign-in" : ""
+      } custom-button btn-sm`}
+      {...otherProps}
+    >
+      {children}
+    </button>
+  );
+};
 
 export default CustomButton;
