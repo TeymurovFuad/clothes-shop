@@ -56,28 +56,12 @@ export const createUSerProfileDcument = async (userAuth, ...additionalData) => {
         ...additionalData,
       });
     } catch (error) {
-      console.error("Firebase.utils -> Error happened", error);
-      alert("Error happened");
+      console.error("Firebase.utils -> Error while creating user", error);
+      alert("Error: Could not create a user");
     }
   }
 
   return userRef;
-};
-
-export const addCollectionAndDocuments = async (
-  collectionKey,
-  objectsToAdd
-) => {
-  const collectionRef = firestore.collection(collectionKey);
-  console.log("collectionRef", collectionRef);
-
-  const batch = firestore.batch();
-  objectsToAdd.forEach((obj) => {
-    const newDocRef = collectionRef.doc();
-    batch.set(newDocRef, obj);
-    console.log("newDocRef", newDocRef);
-  });
-  return await batch.commit();
 };
 
 firebase.initializeApp(config);

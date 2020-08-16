@@ -12,18 +12,12 @@ import "../src/styles/css/App.css";
 import "../src/styles/css/header.styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import {
-  auth,
-  createUSerProfileDcument,
-  addCollectionAndDocuments,
-} from "./firebase/firebase.utils";
+import { auth, createUSerProfileDcument } from "./firebase/firebase.utils";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
 import { setCurrentUser } from "./redux/user/user.actions";
 import { selectCurrentUser } from "./redux/user/user.selector";
-
-import { selectCollectionsForPreview } from "./redux/shop/shop.selector";
 
 // const HatsPage = (props) => {
 //   console.log("<HatsPage>");
@@ -68,7 +62,7 @@ class App extends React.Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
-    const { setCurrentUser, collectionsArray } = this.props;
+    const { setCurrentUser } = this.props;
 
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
@@ -82,14 +76,6 @@ class App extends React.Component {
         });
       } else {
         setCurrentUser({ userAuth });
-        addCollectionAndDocuments(
-          "collections",
-          collectionsArray.map(({ title, items }) => ({ title, items })),
-          console.log(
-            "selectCollectionsForPreview",
-            selectCollectionsForPreview
-          )
-        );
       }
     });
   }
@@ -127,7 +113,6 @@ class App extends React.Component {
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
-  collectionsArray: selectCollectionsForPreview,
 });
 
 const mapDispatchToProps = (dispatch) => ({
