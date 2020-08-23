@@ -56,7 +56,7 @@ import { selectCurrentUser } from "./redux/user/user.selector";
 //       <Link to={props.match.url + 2}>Topic List</Link> /
 //     </div>
 //   );
-// };
+// } ;
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
